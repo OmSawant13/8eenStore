@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Product = require('../models/Product');
+const Product = require('../../models/Product');
 
 // MongoDB connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://username:password@cluster.mongodb.net/8eenstore?retryWrites=true&w=majority';
