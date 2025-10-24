@@ -520,7 +520,7 @@
 
             async loadOrders() {
                 try {
-                    const response = await fetch(`http://localhost:3000/api/orders?userId=${this.userId}`);
+                    const response = await fetch(`/api/orders?userId=${this.userId}`);
                     const orders = await response.json();
 
                     const container = document.getElementById('ordersList');
@@ -563,7 +563,7 @@
 
             async loadProfile() {
                 try {
-                    const response = await fetch(`http://localhost:3000/api/users/profile?userId=${this.userId}`);
+                    const response = await fetch(`/api/users/profile?userId=${this.userId}`);
                     const user = await response.json();
 
                     if (user) {
@@ -586,7 +586,7 @@
                         phone: document.getElementById('phone').value
                     };
 
-                    const response = await fetch(`http://localhost:3000/api/users/profile`, {
+                    const response = await fetch(`/api/users/profile`, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',

@@ -255,7 +255,7 @@
                 localStorage.setItem('userName', user.displayName || user.email.split('@')[0]);
                 
                 // Store in backend database
-                const response = await fetch('http://localhost:3000/api/users/firebase', {
+                const response = await fetch('/api/users/firebase', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

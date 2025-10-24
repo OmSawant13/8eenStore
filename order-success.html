@@ -273,7 +273,7 @@
 
         async function loadOrderDetails(orderNumber) {
             try {
-                const response = await fetch(`http://localhost:3000/api/orders/${orderNumber}`);
+                const response = await fetch(`/api/orders/${orderNumber}`);
                 const order = await response.json();
 
                 if (order) {

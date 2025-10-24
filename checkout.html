@@ -413,7 +413,7 @@
 
             async loadCart() {
                     try {
-                        const response = await fetch(`http://localhost:3000/api/cart?${this.userId ? `userId=${this.userId}` : `sessionId=${this.sessionId}`}`);
+                        const response = await fetch(`/api/cart?${this.userId ? `userId=${this.userId}` : `sessionId=${this.sessionId}`}`);
                     const data = await response.json();
                     
                     this.items = data.items || [];
@@ -539,7 +539,7 @@
                         }
                     };
 
-                    const response = await fetch('http://localhost:3000/api/orders', {
+                    const response = await fetch('/api/orders', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -552,7 +552,7 @@
                         this.showSuccess('Order placed successfully! Order #' + result.orderNumber);
                         
                         // Clear cart
-                        await fetch('http://localhost:3000/api/cart/clear', {
+                        await fetch('/api/cart/clear', {
                             method: 'DELETE',
                             headers: {
                                 'Content-Type': 'application/json',

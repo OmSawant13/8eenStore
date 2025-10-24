@@ -14,7 +14,7 @@ router.post('/upload', (req, res) => {
             return res.status(400).json({ error: 'No image file provided' });
         }
 
-        const imageUrl = `http://localhost:3000/api/images/${req.file.filename}`;
+        const imageUrl = `${req.protocol}://${req.get('host')}/api/images/${req.file.filename}`;
 
         console.log('Image uploaded successfully:', req.file.filename);
 

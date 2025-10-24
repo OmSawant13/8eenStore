@@ -381,7 +381,7 @@
 
             async loadCart() {
                     try {
-                        const response = await fetch(`http://localhost:3000/api/cart?${this.userId ? `userId=${this.userId}` : `sessionId=${this.sessionId}`}`);
+                        const response = await fetch(`/api/cart?${this.userId ? `userId=${this.userId}` : `sessionId=${this.sessionId}`}`);
                     const data = await response.json();
                     
                     this.items = data.items || [];
@@ -439,7 +439,7 @@
 
             async updateQuantity(productId, size, color, quantity) {
                 try {
-                    const response = await fetch('http://localhost:3000/api/cart/update', {
+                    const response = await fetch('/api/cart/update', {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
@@ -464,7 +464,7 @@
 
             async removeItem(productId, size, color) {
                 try {
-                    const response = await fetch('http://localhost:3000/api/cart/remove', {
+                    const response = await fetch('/api/cart/remove', {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',

@@ -897,7 +897,7 @@
         // Load all products
         async function loadAllProducts() {
             try {
-                const response = await fetch('http://localhost:3000/api/products');
+                const response = await fetch('/api/products');
                 const data = await response.json();
                 const products = data.products || [];
 
@@ -991,7 +991,7 @@
                     formData.append('productId', 'temp');
                     formData.append('uploadedBy', 'admin');
 
-                    const uploadResponse = await fetch('http://localhost:3000/api/images/upload', {
+                    const uploadResponse = await fetch('/api/images/upload', {
                         method: 'POST',
                         body: formData
                     });
@@ -1044,7 +1044,7 @@
                 console.log('Sending product data:', productData);
                 console.log('Images being saved:', productData.images);
 
-                const response = await fetch('http://localhost:3000/api/products', {
+                const response = await fetch('/api/products', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -1079,7 +1079,7 @@
         async function deleteProduct(productId) {
             if (confirm('Are you sure you want to delete this product?')) {
                 try {
-                    const response = await fetch(`http://localhost:3000/api/products/${productId}`, {
+                    const response = await fetch(`/api/products/${productId}`, {
                         method: 'DELETE'
                     });
 
@@ -1128,7 +1128,7 @@
         // Load all orders
         async function loadOrders() {
             try {
-                const response = await fetch('http://localhost:3000/api/orders');
+                const response = await fetch('/api/orders');
                 if (response.ok) {
                     allOrders = await response.json();
                     displayOrders();
@@ -1144,7 +1144,7 @@
         // Check for new orders
         async function checkNewOrders() {
             try {
-                const response = await fetch('http://localhost:3000/api/orders');
+                const response = await fetch('/api/orders');
                 if (response.ok) {
                     const newOrders = await response.json();
                     const newOrderCount = newOrders.length - allOrders.length;
@@ -1379,7 +1379,7 @@
         // Update order status
         async function updateOrderStatus(orderId, newStatus) {
             try {
-                const response = await fetch(`http://localhost:3000/api/orders/${orderId}/status`, {
+                const response = await fetch(`/api/orders/${orderId}/status`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
